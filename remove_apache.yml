@@ -1,0 +1,20 @@
+---
+
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Оновлення індексу репозиторію
+    apt:
+      update_cache: yes
+
+  - name: Встановлення пакету apache2
+    apt:
+      name: apache2
+      state: absent
+
+  - name: Добавляємо підтримку php для apache
+    apt:
+      name: libapache2-mod-php
+      state: absent
